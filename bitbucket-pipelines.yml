@@ -1,0 +1,9 @@
+image: php
+
+pipelines:
+  default:
+    - step:
+        script:
+          - apt-get update
+          - apt-get -qq install git-ftp
+          - git ftp push --user $FTP_username --passwd $FTP_password ftp://185.67.1.16/public_html/wp-content/themes/

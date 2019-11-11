@@ -1,0 +1,255 @@
+header.site-header {
+  padding-top: 5px;
+
+  .site-branding {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-logotype {
+    width: 9vh;
+    margin-left: 10px;
+    padding-top: 5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .site-worktime {
+    justify-self: center;
+    font-size: 14px;
+    flex: 0 1 60%;
+    text-align: center;
+  }
+}
+
+// Main Mobile Navigation
+
+.main-navigation {
+  .toggle-container {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    z-index: 9999;
+
+    .menu-toggle {
+      outline: none;
+      position: relative;
+      text-indent: -9999px;
+      background: #42230b;
+      border-radius: 2px;
+      height: 2px;
+      border: unset;
+      width: 20px;
+      transition: all 0.35s ease;
+
+      &:before {
+        content: "";
+        height: 2px;
+        width: 20px;
+        position: absolute;
+        background: #42230b;
+        display: block;
+        left: 0;
+        top: -5px;
+        border-radius: 3px;
+        transition: all 0.35s ease;
+      }
+
+      &:after {
+        content: "";
+        height: 2px;
+        width: 20px;
+        position: absolute;
+        background: #42230b;
+        display: block;
+        left: 0;
+        top: 5px;
+        border-radius: 3px;
+        transition: all 0.35s ease;
+      }
+    }
+  }
+}
+
+//Toggled Navigation Tranform
+
+.main-navigation.toggled {
+  .toggle-container {
+    .menu-toggle {
+      background: rgba(66, 35, 11, 0);
+
+      &:before {
+        transform: translateY(5px) translateX(0) rotate(45deg);
+      }
+
+      &:after {
+        transform: translateY(-5px) translateX(0) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  background: #bfa18b;
+  top: 0;
+  z-index: 99;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+  overflow: hidden;
+
+  .overlay-contacts {
+    text-align: center;
+
+    > span,
+    > div {
+      opacity: 0;
+      position: relative;
+    }
+
+    .time {
+      margin-bottom: 25px;
+      display: block;
+    }
+
+    .phone-block {
+      margin-bottom: 25px;
+    }
+
+    .socials {
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+
+      .instagram {
+        background: url(../img/instagram.png);
+        width: 35px;
+        height: 35px;
+        display: block;
+        background-size: cover;
+      }
+
+      .youtube {
+        background: url(../img/youtube.png);
+        width: 35px;
+        height: 35px;
+        display: block;
+        background-size: cover;
+      }
+
+      .facebook {
+        background: url(../img/facebook.png);
+        width: 35px;
+        height: 35px;
+        display: block;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.main-navigation.toggled {
+  .overlay {
+    opacity: 0.9;
+    visibility: visible;
+    height: 100%;
+
+    li.menu-item {
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.25s;
+
+      &:nth-of-type(2) {
+        animation-delay: 0.4s;
+      }
+
+      &:nth-of-type(3) {
+        animation-delay: 0.45s;
+      }
+
+      &:nth-of-type(4) {
+        animation-delay: 0.5s;
+      }
+    }
+
+    .overlay-contacts > .time {
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.65s;
+    }
+
+    .overlay-contacts > .phone-block {
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.75s;
+    }
+
+    .overlay-contacts > .phone-block.second {
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.85s;
+    }
+
+    .overlay-contacts > .socials {
+      animation: fadeIn 0.5s ease forwards;
+      animation-delay: 0.95s;
+    }
+  }
+}
+
+.menu-veronica-container {
+  margin-bottom: 25px;
+
+  .menu {
+    list-style: none;
+    padding-inline-start: 0;
+    text-align: center;
+
+    .menu-item {
+      font-size: 30px;
+      font-family: "SF Display";
+      font-weight: 300;
+      opacity: 0;
+      position: relative;
+
+      a {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.boldtext {
+  font-weight: 700;
+}
+
+.phone {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+.small-title {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
